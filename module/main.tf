@@ -26,9 +26,13 @@ resource "null_resource" "provisioner" {
   }
 }
 
+# aws hosted zone creation
+resource "aws_route53_zone" "myzone"{
+ name = "uknowme.tech"
+}
 
 resource "aws_route53_record" "records" {
-  zone_id = "Z03986262CQPCHNJNZM9L"
+  zone_id = aws_route53_zone.myzone.zone_id
   name    = "${var.component_name}-dev.uknowme.tech"
   type    = "A"
   ttl     = 30
