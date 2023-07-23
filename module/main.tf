@@ -32,7 +32,7 @@ resource "aws_route53_zone" "myzone"{
 }
 
 resource "aws_route53_record" "records" {
-  zone_id = aws_route53_zone.myzone.zone_id
+  zone_id = [aws_route53_zone.myzone.zone_id]
   name    = "${var.component_name}-dev.uknowme.tech"
   type    = "A"
   ttl     = 30
