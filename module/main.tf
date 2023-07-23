@@ -40,10 +40,10 @@ resource "aws_route53_record" "records" {
 }
 
 #aws kms creation
-resource "aws_kms_key" "mykey" {
-  description             = "my key for kms"
-  deletion_window_in_days = 7
-}
+#resource "aws_kms_key" "mykey" {
+  #description             = "my key for kms"
+  #deletion_window_in_days = 7
+#}
 
 resource "aws_iam_role" "role" {
   name = "${var.component_name}-${var.env}-role"
