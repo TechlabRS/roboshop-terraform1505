@@ -32,7 +32,7 @@ resource "null_resource" "provisioner" {
 #}
 
 resource "aws_route53_record" "records" {
-  zone_id = "Z02579932QP3FC0HZ3NCE"
+  zone_id = resource.aws_route53_zone.myzone.zone_id
   name    = "${var.component_name}-dev.uknowme.tech"
   type    = "A"
   ttl     = 30
